@@ -18,7 +18,8 @@ def grid_is_connected(arr: np.array):
                 curr = e + d
                 while curr >= 0 and curr < len(row):
                     # in each direction stop when no direct path
-                    if row[curr] == 0:
+                    # or val already marked as connected
+                    if row[curr] == 0 or curr in new_connected:
                         break
                     new_connected.add(curr)
                     curr += d
