@@ -10,7 +10,8 @@ def grid_is_connected(arr: np.array):
         new_connected = set()
         for e in connected_above:
             # check each val connected to 1s in prev row
-            if row[e] == 0:
+            # that hasn't already been marked as connected
+            if row[e] == 0 or e in new_connected:
                 continue
             new_connected.add(e)
             # if there is a connection, check left and right
